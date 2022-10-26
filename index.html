@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Meme generator</title>
+</head>
+
+<body class="main layout">
+
+    <header class="main-header">
+        <div class="header-logo logo">memegen</div>
+        <div class="pages-links">
+            <p class="gallery">Gallery</p>
+            <p class="meme">Meme</p>
+            <p class="about">About</p>
+        </div>
+    </header>
+    <section class="search section">
+        <label for="search">Search:
+
+            <input id="search-keyword" type="text" class="keyword-input" oninput="onSetFilter('word', this.value)" />
+        </label>
+        <div class="words-container">
+            <div class="popular-words"></div>
+            <p class="more-words">more</p>
+        </div>
+    </section>
+    <section class="main-galery"></section>
+    <section class="editor"></section>
+    <section class="focus">
+        <div class="focus-picture">
+            <div class="focuse-aside"></div>
+            <div class="social-links"></div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-logo">memegen</div>
+        <p class="rights">all rights reserved 2019</p>
+    </footer>
+
+
+    <script src="js/util.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
