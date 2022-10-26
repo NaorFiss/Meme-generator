@@ -13,7 +13,7 @@ canvas {
 .canvas-container {
   background-color: brown;
   margin: 0 auto;
-  width: 90vw;
+  width: 50vw;
   height: 85vh;
 }
 
@@ -29,9 +29,11 @@ grid-template-areas:
 }
 
 .img1 {
+  width: 100%;
   grid-area: img1;
 }
 
 .img2 {
+  width: 100%;
   grid-area: img2;
 }

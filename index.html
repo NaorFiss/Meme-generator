@@ -31,16 +31,15 @@
     </section>
     <section class="main-galery">
         <div class="grid-container">
-            <img src="img/1.jpg" class="img1">
-            <img src="img/2.jpg" class="img2">
+            <img src="img/1.jpg" class="img1" id="1" onclick="onImgSelect(this.id)">
+            <img src="img/2.jpg" class="img2" id="2" onclick="onImgSelect(this.id)">
         </div>
     </section>
     <section class="editor">
         <div class="canvas-container">
-            <h3>Container</h3>
             <input placeholder="Text line" size="71" type="text" class="txt-line" value=""
                 oninput="onInputText(this.value)">
-            <canvas id="my-canvas" height="450" width="450"></canvas>
+            <canvas id="my-canvas" height="400" width="400"></canvas>
         </div>
     </section>
     <section class="focus">

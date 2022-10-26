@@ -35,3 +35,13 @@ function onInputText(txt) {
     setLineTxt(txt)
     renderMeme()
 }
+
+function onImgSelect(imgId) {
+    setImg(imgId)
+    console.log("onImgSelect befor rendermeme-gMeme: ", gMeme)
+    renderMeme()
+}
+
+
+
+
