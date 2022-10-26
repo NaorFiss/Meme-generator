@@ -9,7 +9,7 @@
     <title>Meme generator</title>
 </head>
 
-<body class="main layout">
+<body class="main layout" onload="onInit()">
 
     <header class="main-header">
         <div class="header-logo logo">memegen</div>
@@ -29,8 +29,20 @@
             <p class="more-words">more</p>
         </div>
     </section>
-    <section class="main-galery"></section>
-    <section class="editor"></section>
+    <section class="main-galery">
+        <div class="grid-container">
+            <img src="img/1.jpg" class="img1">
+            <img src="img/2.jpg" class="img2">
+        </div>
+    </section>
+    <section class="editor">
+        <div class="canvas-container">
+            <h3>Container</h3>
+            <input placeholder="Text line" size="71" type="text" class="txt-line" value=""
+                oninput="onInputText(this.value)">
+            <canvas id="my-canvas" height="450" width="450"></canvas>
+        </div>
+    </section>
     <section class="focus">
         <div class="focus-picture">
             <div class="focuse-aside"></div>
@@ -46,7 +58,8 @@
     <script src="js/util.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/service.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/galeryController.js"></script>
+    <script src="js/memeController.js"></script>
 </body>
 
 </html>
