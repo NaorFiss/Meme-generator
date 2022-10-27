@@ -2,31 +2,53 @@
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'politic'] },
-{ id: 2, url: 'img/2.jpg', keywords: ['funny', 'animals'] }]
+let gImgs = [
+    { id: "1", url: 'img/1.jpg', keywords: ['funny', 'politic'] },
+    { id: "2", url: 'img/2.jpg', keywords: ['funny', 'animals'] },
+    { id: "3", url: 'img/3.jpg', keywords: ['funny', 'animals'] },
+    { id: "4", url: 'img/4.jpg', keywords: ['funny', 'animals'] },
+    { id: "5", url: 'img/5.jpg', keywords: ['funny', 'animals'] },
+    { id: "6", url: 'img/6.jpg', keywords: ['funny', 'animals'] },
+    { id: "7", url: 'img/7.jpg', keywords: ['funny', 'animals'] },
+    { id: "8", url: 'img/8.jpg', keywords: ['funny', 'animals'] },
+    { id: "9", url: 'img/9.jpg', keywords: ['funny', 'animals'] },
+    { id: "10", url: 'img/1.jpg', keywords: ['funny', 'politic'] },
+    { id: "11", url: 'img/11.jpg', keywords: ['funny', 'politic'] },
+    { id: "12", url: 'img/12.jpg', keywords: ['funny', 'animals'] },
+    { id: "13", url: 'img/13.jpg', keywords: ['funny', 'animals'] },
+    { id: "14", url: 'img/14.jpg', keywords: ['funny', 'animals'] },
+    { id: "15", url: 'img/15.jpg', keywords: ['funny', 'animals'] },
+    { id: "16", url: 'img/16.jpg', keywords: ['funny', 'animals'] }
+]
 
-var gMeme = {
-    selectedImgId: 1,
+let gMeme = {
+    selectedImgId: '',
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
+            txt: '',
+            size: '40',
             align: 'left',
-            color: 'red'
+            color: 'white',
+            x: '30'
+        },
+        {
+            txt: '',
+            size: '40',
+            align: 'left',
+            color: 'white',
+            x: '370'
         }
     ]
 }
 
+function getImg() {
+    var cureImg = gImgs.find(img => +img.id === +gMeme.selectedImgId)
+    return cureImg.url
+}
+
 function getMeme() {
-    console.log("inside getMeme: imgId: ", gImgs[gMeme.selectedImgId - 1].id)
-    const cureImg = gImgs.find(img => img.id === gMeme.selectedImgId)
-    console.log("after find cureImg", cureImg)
-    var cureMeme = {
-        imgUrl: cureImg.url,
-        lineTxt: gMeme.lines[gMeme.selectedLineIdx].txt
-    }
-    return cureMeme
+    return gMeme
 }
 
 function setLineTxt(txt) {
@@ -34,21 +56,32 @@ function setLineTxt(txt) {
 }
 
 function setImg(imgId) {
-    console.log("setImg")
-    const img = gImgs.find(img => img.id === gMeme.selectedImgId)
-    const cureMeme = {
-        selectedImgId: imgId,
-        selectedLineIdx: 0,
-        lines: [
-            {
-                txt: '',
-                size: 0,
-                align: 'left',
-                color: 'red'
-            }
-        ]
-
-    }
-    gMeme = cureMeme
-    console.log("gMeme: ", gMeme)
+    const img = gImgs.find(img => img.id === imgId)
+    gMeme.selectedImgId = imgId
 }
+
+function getFontSize(idx) {
+    return gMeme.lines[idx].size
+}
+
+function getFillStyle(idx) {
+    var lineColor = gMeme.lines[idx].color
+    return lineColor
+}
+
+function getSelectedLineIdx() {
+    return gMeme.selectedLineIdx
+}
+
+function changeColor(lineColor) {
+    gMeme.lines[gMeme.selectedLineIdx].color = lineColor
+}
+
+function changeFontSize(fontSize) {
+    gMeme.lines[gMeme.selectedLineIdx].size = fontSize
+}
+
+function switchLine() {
+    gMeme.selectedLineIdx = (gMeme.lines.length === gMeme.selectedLineIdx + 1) ? 0 : gMeme.selectedLineIdx + 1
+}
+

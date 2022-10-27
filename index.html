@@ -9,46 +9,114 @@
     <title>Meme generator</title>
 </head>
 
-<body class="main layout" onload="onInit()">
+<body class="main-layout" onload="onInit()">
 
-    <header class="main-header">
-        <div class="header-logo logo">memegen</div>
-        <div class="pages-links">
-            <p class="gallery">Gallery</p>
-            <p class="meme">Meme</p>
-            <p class="about">About</p>
+    <header class="main-header full main-layout">
+        <div class="header flex space-between align-center">
+            <div class="header-logo logo">memegen</div>
+            <nav class="main-nav">
+                <ul class="clear-list flex align-center justify-center space-between">
+                    <li>
+                        <p class="gallery" onclick="onClickGallery()">Gallery</p>
+                    </li>
+                    <li>
+                        <p class="meme" onclick="onClickMeme()">Meme</p>
+                    </li>
+                    <li>
+                        <p class="about">About</p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         </div>
     </header>
     <section class="search section">
-        <label for="search">Search:
+        <div class="flex space-between">
+            <label for="search">Search:
 
-            <input id="search-keyword" type="text" class="keyword-input" oninput="onSetFilter('word', this.value)" />
-        </label>
-        <div class="words-container">
-            <div class="popular-words"></div>
-            <p class="more-words">more</p>
+                <input id="search-keyword" type="text" class="keyword-input"
+                    oninput="onSetFilter('word', this.value)" />
+            </label>
+            <div class="words-container">
+                <div class="popular-words"></div>
+                <p class="more-words">more</p>
+            </div>
         </div>
     </section>
-    <section class="main-galery">
-        <div class="grid-container">
+    <section class="main-galery full main-layout">
+        <div class=" grid-container">
             <img src="img/1.jpg" class="img1" id="1" onclick="onImgSelect(this.id)">
             <img src="img/2.jpg" class="img2" id="2" onclick="onImgSelect(this.id)">
+            <img src="img/3.jpg" class="img3" id="3" onclick="onImgSelect(this.id)">
+            <img src="img/4.jpg" class="img4" id="4" onclick="onImgSelect(this.id)">
+            <img src="img/5.jpg" class="img5" id="5" onclick="onImgSelect(this.id)">
+            <img src="img/6.jpg" class="img6" id="6" onclick="onImgSelect(this.id)">
+            <img src="img/7.jpg" class="img7" id="7" onclick="onImgSelect(this.id)">
+            <img src="img/8.jpg" class="img8" id="8" onclick="onImgSelect(this.id)">
+            <img src="img/9.jpg" class="img9" id="9" onclick="onImgSelect(this.id)">
+            <img src="img/10.jpg" class="img10" id="10" onclick="onImgSelect(this.id)">
+            <img src="img/11.jpg" class="img11" id="11" onclick="onImgSelect(this.id)">
+            <img src="img/12.jpg" class="img12" id="12" onclick="onImgSelect(this.id)">
+            <img src="img/13.jpg" class="img13" id="13" onclick="onImgSelect(this.id)">
+            <img src="img/14.jpg" class="img14" id="14" onclick="onImgSelect(this.id)">
+            <img src="img/15.jpg" class="img15" id="15" onclick="onImgSelect(this.id)">
+            <img src="img/16.jpg" class="img16" id="16" onclick="onImgSelect(this.id)">
         </div>
     </section>
-    <section class="editor">
-        <div class="canvas-container">
-            <input placeholder="Text line" size="71" type="text" class="txt-line" value=""
-                oninput="onInputText(this.value)">
-            <canvas id="my-canvas" height="400" width="400"></canvas>
+    <section class="meme-editor full">
+        <header class="editor-header main-header full main-layout">
+            <div class="header flex space-between align-center">
+                <div class="header-logo logo">memegen</div>
+                <nav class="main-nav">
+                    <ul class="clear-list flex align-center justify-center space-between">
+                        <li>
+                            <p class="gallery" onclick="onClickGallery()">Gallery</p>
+                        </li>
+                        <li>
+                            <p class="about">About</p>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            </div>
+        </header>
+        <div class="edit-container flex space-between">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="400" width="400"></canvas>
+            </div>
+            <div class="edit-options flex direction-column space-between ">
+                <div>
+                    <input placeholder="Text line" size="71" type="text" class="txt-line" value=""
+                        oninput="onInputText(this.value)">
+                </div>
+                <div>
+                    <label for="favcolor">Text color:</label>
+                    <input type="color" id="favcolor" name="favcolor" value="#ff0000"
+                        oninput="onChangeColor(this.value)">
+                </div>
+                <div>
+                    <label for="Font-size">Font-size:</label>
+                    <input id=Font-size type=number min=0 max=100 value="40" oninput="onChangeFontSize(this.value)">
+                </div>
+                <div>
+                    <button class="switch-line" onclick="onSwitchLine()">switch-line</button>
+                </div>
+
+            </div>
         </div>
+        <footer class="edit-footer footer full main-layout">
+            <div class="footer-logo">memegen</div>
+            <p class="rights">all rights reserved 2019</p>
+        </footer>
     </section>
+
     <section class="focus">
         <div class="focus-picture">
             <div class="focuse-aside"></div>
             <div class="social-links"></div>
         </div>
     </section>
-    <footer class="footer">
+    <footer class="footer full main-layout">
         <div class="footer-logo">memegen</div>
         <p class="rights">all rights reserved 2019</p>
     </footer>

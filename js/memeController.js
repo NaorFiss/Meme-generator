@@ -1,34 +1,40 @@
 "use strict"
 
-let gElCanvas
-let gCtx
+var gElCanvas
+var gCtx
 
 function onInit() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
 }
 
-renderMeme()
-
 function renderMeme() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    const cureMeme = getMeme()
+    const cureImg = getImg()
     const elImg = new Image()
-    elImg.src = [cureMeme.imgUrl]
+    elImg.src = [cureImg]
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(cureMeme.lineTxt, 30, 40)
+        var cureMeme = getMeme()
+        cureMeme.lines.forEach((line, index) => {
+            var text = line.txt
+            setLineDefinitions(index)
+            if (index === 0) { drawText(text, 30, 40) }
+            else { drawText(text, 30, 370) }
+        })
     }
 }
 
+function setLineDefinitions(idx) {
+    gCtx.fillStyle = getFillStyle(idx)
+    const fontSize = getFontSize(idx)
+    gCtx.font = fontSize + 'px Impact'
+}
 function drawText(text, x, y) {
-    gCtx.lineWidth = 5
-    gCtx.strokeStyle = 'red'
-    gCtx.fillStyle = 'black'
-    gCtx.font = '40px Arial'
-    gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
+    gCtx.strokeStyle = 'black'
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
 }
 
 function onInputText(txt) {
@@ -38,8 +44,30 @@ function onInputText(txt) {
 
 function onImgSelect(imgId) {
     setImg(imgId)
-    console.log("onImgSelect befor rendermeme-gMeme: ", gMeme)
     renderMeme()
+    onClickMeme()
+}
+
+function onChangeColor(lineColor) {
+    changeColor(lineColor)
+}
+
+function onChangeFontSize(fontSize) {
+    changeFontSize(fontSize)
+}
+
+function onSwitchLine() {
+    switchLine()
+}
+
+function onClickMeme() {
+    var elMeme = document.querySelector('.meme-editor')
+    elMeme.classList.add('open')
+}
+
+function onClickGallery() {
+    var elMeme = document.querySelector('.meme-editor')
+    elMeme.classList.remove('open')
 }
 
 
