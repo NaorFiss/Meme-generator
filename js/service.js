@@ -32,14 +32,24 @@ let gMeme = {
             color: 'white',
             x: '30'
         },
-        {
-            txt: '',
-            size: '40',
-            align: 'left',
-            color: 'white',
-            x: '370'
-        }
     ]
+}
+function deleteLine() {
+    var idx = gMeme.selectedLineIdx
+    gMeme.lines.splice(idx, 1)
+}
+function addLine() {
+    var newLIne = makeLine()
+    gMeme.lines.push(newLIne)
+}
+function makeLine() {
+    return {
+        txt: '',
+        size: '40',
+        align: 'left',
+        color: 'white',
+        x: '30'
+    }
 }
 
 function getImg() {

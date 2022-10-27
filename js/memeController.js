@@ -21,7 +21,8 @@ function renderMeme() {
             var text = line.txt
             setLineDefinitions(index)
             if (index === 0) { drawText(text, 30, 40) }
-            else { drawText(text, 30, 370) }
+            else if (index === 1) { drawText(text, 30, 370) }
+            else { drawText(text, 30, 205) }
         })
     }
 }
@@ -70,6 +71,8 @@ function onClickGallery() {
     elMeme.classList.remove('open')
 }
 
-
+function onAddLine() {
+    addLine()
+}
 
 
