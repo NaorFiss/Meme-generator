@@ -51,7 +51,9 @@ function makeLine() {
         x: '30'
     }
 }
-
+function getText() {
+    return gMeme.lines[gMeme.selectedLineIdx].txt
+}
 function getImg() {
     var cureImg = gImgs.find(img => +img.id === +gMeme.selectedImgId)
     return cureImg.url
@@ -93,5 +95,8 @@ function changeFontSize(fontSize) {
 
 function switchLine() {
     gMeme.selectedLineIdx = (gMeme.lines.length === gMeme.selectedLineIdx + 1) ? 0 : gMeme.selectedLineIdx + 1
+    console.log(gMeme.lines[gMeme.selectedLineIdx].txt)
+    setLineTxt(gMeme.lines[gMeme.selectedLineIdx].txt)
+
 }
 

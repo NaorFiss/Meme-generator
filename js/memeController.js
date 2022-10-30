@@ -51,28 +51,40 @@ function onImgSelect(imgId) {
 
 function onChangeColor(lineColor) {
     changeColor(lineColor)
+    renderMeme()
 }
 
 function onChangeFontSize(fontSize) {
     changeFontSize(fontSize)
+    renderMeme()
 }
 
 function onSwitchLine() {
     switchLine()
+    console.log("getElementsByName ", document.getElementsByName('txt-line'))
+    document.getElementsByName('textLine').placeholder = getText()
+    renderMeme()
 }
 
 function onClickMeme() {
     var elMeme = document.querySelector('.meme-editor')
-    elMeme.classList.add('open')
+    elMeme.classList.remove('hide')
+    var elMainGallery = document.querySelector('.main-galery')
+    elMainGallery.classList.add('hide')
 }
 
 function onClickGallery() {
     var elMeme = document.querySelector('.meme-editor')
-    elMeme.classList.remove('open')
+    elMeme.classList.add('hide')
+    var elMainGallery = document.querySelector('.main-galery')
+    elMainGallery.classList.remove('hide')
 }
 
 function onAddLine() {
     addLine()
 }
 
+function onDeleteLine() {
+    deleteLine()
+}
 

@@ -22,15 +22,16 @@
                     <li>
                         <p class="meme" onclick="onClickMeme()">Meme</p>
                     </li>
-                    <li>
+                    <!-- <li>
                         <p class="about">About</p>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
         </div>
         </div>
     </header>
-    <section class="search section">
+
+    <!-- <section class="search section">
         <div class="flex space-between">
             <label for="search">Search:
 
@@ -42,8 +43,23 @@
                 <p class="more-words">more</p>
             </div>
         </div>
-    </section>
-    <section class="main-galery full main-layout">
+    </section> -->
+
+    <section class="main-galery full main-layout ">
+        <!-- <section class="search section">
+            <div class="flex space-between">
+                <label for="search">Search:
+
+                    <input id="search-keyword" type="text" class="keyword-input"
+                        oninput="onSetFilter('word', this.value)" />
+                </label>
+                <div class="words-container">
+                    <div class="popular-words"></div>
+                    <p class="more-words">more</p>
+                </div>
+            </div>
+        </section> -->
+
         <div class=" grid-container">
             <img src="img/1.jpg" class="img1" id="1" onclick="onImgSelect(this.id)">
             <img src="img/2.jpg" class="img2" id="2" onclick="onImgSelect(this.id)">
@@ -62,9 +78,16 @@
             <img src="img/15.jpg" class="img15" id="15" onclick="onImgSelect(this.id)">
             <img src="img/16.jpg" class="img16" id="16" onclick="onImgSelect(this.id)">
         </div>
+        <section class="focus">
+            <div class="focus-picture">
+                <div class="focuse-aside"></div>
+                <div class="social-links"></div>
+            </div>
+        </section>
     </section>
-    <section class="meme-editor full">
-        <header class="editor-header main-header full main-layout">
+
+    <section class="meme-editor full hide">
+        <!-- <header class="editor-header main-header full main-layout">
             <div class="header flex space-between align-center">
                 <div class="header-logo logo">memegen</div>
                 <nav class="main-nav">
@@ -79,14 +102,14 @@
                 </nav>
             </div>
             </div>
-        </header>
+        </header> -->
         <div class="edit-container flex space-between">
             <div class="canvas-container">
                 <canvas id="my-canvas" height="400" width="400"></canvas>
             </div>
             <div class="edit-options flex direction-column space-between ">
                 <div>
-                    <input placeholder="Text line" size="71" type="text" class="txt-line" value=""
+                    <input placeholder="Text line" name="textine" size="71" type="text" class="txt-line" value=""
                         oninput="onInputText(this.value)">
                 </div>
                 <div>
@@ -110,23 +133,24 @@
 
             </div>
         </div>
-        <footer class="edit-footer footer full main-layout">
+        <!-- <footer class="edit-footer footer full main-layout">
             <div class="footer-logo">memegen</div>
             <p class="rights">all rights reserved 2019</p>
-        </footer>
+        </footer> -->
     </section>
 
-    <section class="focus">
+    <!-- <section class="focus">
         <div class="focus-picture">
             <div class="focuse-aside"></div>
             <div class="social-links"></div>
         </div>
-    </section>
+    </section> -->
+
+
     <footer class="footer full main-layout">
         <div class="footer-logo">memegen</div>
         <p class="rights">all rights reserved 2019</p>
     </footer>
-
 
     <script src="js/util.js"></script>
     <script src="js/storage.js"></script>
